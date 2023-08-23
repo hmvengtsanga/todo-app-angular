@@ -1,0 +1,19 @@
+
+<!-- <div [ngClass]="{ disabled: inputControl.control?.disabled }"> -->
+<div>
+    <span class="p-float-label">
+        <input
+            class="form-control"
+            pInputText 
+            id="{{ label | translate }}"
+            [(ngModel)]="val"
+            (ngModelChange)="onChange($event)" 
+            (blur)="onTouch($event)"
+        />
+        <label htmlFor="{{ label | translate}}"> {{ label | translate}}</label>
+    </span>
+    <small *ngIf="hint"> {{ hint | translate}} </small>
+    <ng-container *ngIf="inputControl.control">
+        <app-form-control-error  [control]="inputControl.control" ></app-form-control-error>
+    </ng-container>
+</div>

@@ -1,0 +1,45 @@
+<div class="form-signout w-100 m-auto">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  
+      <h1 class="h3 mb-3 fw-normal text-center">
+        {{ 'login.sign_up.form_title' | translate }}
+      </h1>
+  
+      <div class="my-4">
+        <app-form-control-input-text 
+            label="{{ 'login.sign_up.form.firstname' | translate }}"
+            formControlName="firstName"
+        >
+        </app-form-control-input-text>
+      </div>
+
+      <div class="my-4">
+        <app-form-control-input-text
+            label="{{ 'login.sign_up.form.lastname' | translate }}"
+            formControlName="lastName"
+        >
+        </app-form-control-input-text>
+      </div>
+
+      <div class="my-4">
+        <app-form-control-input-text
+            label="{{ 'login.sign_up.form.email' | translate }}"
+            formControlName="email"
+        >
+        </app-form-control-input-text>
+      </div>
+      
+      <div>
+        <button class="btn btn-primary w-100 py-2 my-3" type="submit">
+           {{ 'login.sign_up.form.btn.submit' | translate }}
+        </button>
+      </div>
+  
+      <p class="text-center">
+        <a routerLink="/login">
+          {{ 'login.sign_up.sign_in_link' | translate }}
+        </a> 
+      </p>
+  
+    </form>
+  </div>

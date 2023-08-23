@@ -1,0 +1,8 @@
+<ng-container *ngIf="control?.touched && control?.errors">
+    <ng-container *ngFor="let error of errors">
+        <small class="p-error">
+          {{ error | translate }}
+        </small>
+      </ng-container>
+</ng-container>
+

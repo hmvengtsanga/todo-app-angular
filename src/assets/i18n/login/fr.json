@@ -1,0 +1,28 @@
+{
+    "login": {
+        "title": "Bienvenue sur {{ app_name }}!",
+        "sign_in": {
+            "form_title": "Connectes toi",
+            "form": {
+                "email": "Adresse email",
+                "password": "Mot de passe",
+                "btn": {
+                    "submit": "Connexion"
+                }
+            },
+            "register_link": "Créer un compte"
+        },
+        "sign_up": {
+            "form_title": "Enregistre toi",
+            "form": {
+                "firstname": "Prénom",
+                "lastname": "Nom",
+                "email": "Adresse email",
+                "btn": {
+                    "submit": "Enregistrer"
+                }
+            },
+            "sign_in_link": "Se connecter"
+        }
+    }
+}

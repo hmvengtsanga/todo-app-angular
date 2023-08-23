@@ -1,0 +1,28 @@
+{
+    "login": {
+        "title": "Welcome to the {{ app_name }}!",
+        "sign_in": {
+            "form_title": "Please sign in",
+            "form": {
+                "email": "Email address",
+                "password": "Password",
+                "btn": {
+                    "submit": "Sign In"
+                }
+            },
+            "register_link": "Register"
+        },
+        "sign_up": {
+            "form_title": "Please sign up",
+            "form": {
+                "firstname": "Firstname",
+                "lastname": "Lastname",
+                "email": "Email address",
+                "btn": {
+                    "submit": "Register"
+                }
+            },
+            "sign_in_link": "Sign In"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "shared": {
+        "form": {
+            "error": {
+                "default": "Champ erroné",
+                "required": "Champ requis",
+                "email": "Format email incorrect"
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "shared": {
+        "form": {
+            "error": {
+                "default": "Field error",
+                "required": "Required field",
+                "email": "Bad email format"
+            }
+        }
+    }
+}
