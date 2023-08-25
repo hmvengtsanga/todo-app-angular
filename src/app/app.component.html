@@ -1,6 +1,14 @@
 <div class="container-fluid">
+  <app-loader></app-loader>
+  
+  <p-toast position="top-center"></p-toast>
+  
   <div class="container">
     <app-header-top></app-header-top>
+
+    <ng-container *ngIf="userIsAuthenticated$ | async">
+      <app-header></app-header>
+    </ng-container>
 
      <router-outlet></router-outlet>
   </div>

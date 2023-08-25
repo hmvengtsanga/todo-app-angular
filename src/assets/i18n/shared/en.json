@@ -6,6 +6,12 @@
                 "required": "Required field",
                 "email": "Bad email format"
             }
+        },
+        "menu": {
+            "my_todos": "My Todos",
+            "public_todos": "Public Todos",
+            "users": "Users",
+            "logout": "Logout"
         }
     }
 }

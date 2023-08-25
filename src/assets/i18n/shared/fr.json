@@ -6,6 +6,12 @@
                 "required": "Champ requis",
                 "email": "Format email incorrect"
             }
+        },
+        "menu": {
+            "my_todos": "Mes Todos",
+            "public_todos": "Todos publiques",
+            "users": "Utilisateurs",
+            "logout": "Déconnexion"
         }
     }
 }

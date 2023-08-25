@@ -1,0 +1,10 @@
+{
+    "core": {
+        "errors": {
+            "not_found": {
+                "title": "Not Found",
+                "description": "Sorry, the page you are looking for doesn't exist."
+            }
+        }
+    }
+}
