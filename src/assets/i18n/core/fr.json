@@ -1,0 +1,10 @@
+{
+    "core": {
+        "errors": {
+            "not_found": {
+                "title": "Non trouvée",
+                "description": "Désolé, la page que vous chercher n'existe pas."
+            }
+        }
+    }
+}

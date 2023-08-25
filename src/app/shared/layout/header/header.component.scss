@@ -1,0 +1,20 @@
+
+::ng-deep {
+
+    .p-menubar {
+        .p-menuitem-link {
+            &.p-menuitem-link-active {
+                border-bottom: 2px solid #212529;
+                background-color: #9c9e9e;
+    
+                .p-menuitem-text {
+                    font-weight: 600;
+                }
+            }
+
+            &:hover {
+                border-bottom: 2px solid #212529;
+            }
+        }
+    }
+}
