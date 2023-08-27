@@ -63,13 +63,21 @@ export class LoginPageComponent implements OnInit, OnDestroy {
       )
       .subscribe(() => {
         this.loginForm.reset({})
+        this.toastService.success(
+            this.translateService.instant('login.sign_in.form.success')
+        );
         this.router.navigate(['/todos']);
       });
   }
 
   onSubmit() {
     if (!this.loginForm.valid) {
-       return 
+      Object.keys(this.loginForm.controls).forEach(field => {
+        const control = this.loginForm.get(field);
+        control?.markAsTouched({ onlySelf: true });
+      });
+
+       return;
     }
 
     const loginData = this.loginForm.value;
@@ -79,7 +87,10 @@ export class LoginPageComponent implements OnInit, OnDestroy {
           this.loginForm.patchValue(loginData);
           this.toastService.error(
             err.error.message ?? err.message,
-            this.translateService.instant('login.sign_in.form.errors')
+            {
+              title: this.translateService.instant('login.sign_in.form.errors'),
+              life: 5000
+            }
           );
           return of('');
         })

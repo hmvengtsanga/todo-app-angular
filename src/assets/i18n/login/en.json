@@ -9,7 +9,8 @@
                 "btn": {
                     "submit": "Sign In"
                 },
-                "errors": "Connection failed"
+                "errors": "Failed connection",
+                "success": "Successful connection"
             },
             "register_link": "Register"
         },
@@ -21,7 +22,8 @@
                 "email": "Email address",
                 "btn": {
                     "submit": "Register"
-                }
+                },
+                "success": "Successful registration, an email containing the login information has been sent."
             },
             "sign_in_link": "Sign In"
         }
