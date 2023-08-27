@@ -30,7 +30,7 @@
       </div>
       
       <div>
-        <button class="btn btn-primary w-100 py-2 my-3" type="submit">
+        <button class="btn btn-primary w-100 py-2 my-3" type="submit" [disabled]="formIsSubmitted$ | async" >
            {{ 'login.sign_up.form.btn.submit' | translate }}
         </button>
       </div>

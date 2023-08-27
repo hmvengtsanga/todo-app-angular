@@ -9,7 +9,8 @@
                 "btn": {
                     "submit": "Connexion"
                 },
-                "errors": "Echec connexion"
+                "errors": "Echec connexion",
+                "success": "Connexion réussie"
             },
             "register_link": "Créer un compte"
         },
@@ -21,7 +22,8 @@
                 "email": "Adresse email",
                 "btn": {
                     "submit": "Enregistrer"
-                }
+                },
+                "success": "Inscription réussie, un email contenant les informations de connexion a été envoyé."
             },
             "sign_in_link": "Se connecter"
         }

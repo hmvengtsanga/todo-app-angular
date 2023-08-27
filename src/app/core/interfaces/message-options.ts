@@ -1,5 +1,6 @@
 export interface MessageOptions {
     id?: any;
+    title?: string;
     key?: string;
     life?: number;
     sticky?: boolean;
