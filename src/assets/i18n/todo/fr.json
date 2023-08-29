@@ -1,4 +1,29 @@
 {
     "todo": {
+        "title": {
+            "home": "Liste des todos",
+            "my_todos": "Mes todos",
+            "public_todos": "Todos publiques"
+        },
+        "list": {
+            "table": {
+                "empty_data": "Aucun todo à afficher.", 
+                "createAtFormat": "dd/MM/yyyy à h:m",
+                "action": {
+                    "edit": "Modifier",
+                    "done": "Marquer comme terminé",
+                    "in_progress": "Non terminé"
+                },
+                "privacy": {
+                    "public": "Publique",
+                    "private": "Privée"
+                }
+            }
+        },
+        "status": {
+            "in_progress" : "En cours",
+            "done": "Terminé"
+        }
+
     }
 }

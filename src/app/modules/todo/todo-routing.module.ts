@@ -10,7 +10,16 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'me',
+        pathMatch: 'full',
+      },
+      {
+        path: 'me',
         loadComponent: () => import('./pages/my-todo-page/my-todo-page.component').then((comp) => comp.MyTodoPageComponent),
+      },
+      {
+        path: 'public',
+        loadComponent: () => import('./pages/public-todo-page/public-todo-page.component').then((comp) => comp.PublicTodoPageComponent),
       },
     ],
   },

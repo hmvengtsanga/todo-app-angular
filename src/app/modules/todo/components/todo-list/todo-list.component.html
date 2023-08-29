@@ -1,0 +1,33 @@
+
+<div>
+    <div class="list-group mb-5" *ngIf="todos">
+        <div class="list-group-item list-group-item-action" *ngFor="let todo of todos" >
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1"> {{ '#' + todo.id }} </h5>
+                <small> {{ todo.createdAt | date: ('todo.list.table.createAtFormat' | translate) }}</small>
+            </div>
+            <div class="mb-1 fs-6 fw-semibold">
+                {{ todo.title }}
+            </div>
+            <div class="row">
+                <div [ngClass]="public ? 'col-12' : 'col-9' " > {{ todo.description | truncate:100 }}</div>
+                <div class="col-3" *ngIf="public === false"> 
+                    <p-button icon="pi pi-check" styleClass="p-button-rounded p-button-outlined float-end ms-2"></p-button>
+                    <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined float-end"></p-button>
+                </div>
+            </div>
+            <div class="p-1">
+                <p-tag [value]=" 'todo.status.' + todo.status | translate" [severity]="todo.status | severity"></p-tag>
+                <p-tag [value]="(todo.public ? 'todo.list.table.privacy.public' : 'todo.list.table.privacy.private') | translate " class="m-1"></p-tag>
+                <p-chip [label]="todo.owner.firstName + ' ' + todo.owner.lastName" icon="pi pi-user"></p-chip>
+            </div>
+        </div>
+    </div>
+    <p-paginator 
+        (onPageChange)="onPageChange($event)"
+        [rows]="rows"
+        [totalRecords]="total"
+        [pageLinkSize]="3"
+        [rowsPerPageOptions]="[5, 10, 20, 30]"
+    ></p-paginator>
+</div>

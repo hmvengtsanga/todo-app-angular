@@ -3,7 +3,7 @@ import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { tap } from 'rxjs';
 
 import { AuthUser } from 'src/app/core/interfaces/auth-user';
-import { LoginUser, LogoutUser } from 'src/app/core/actions/auth.action';
+import { LoginUser, LogoutUser, RefreshUserToken} from 'src/app/core/actions/auth.action';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 export interface AuthStateModel {
@@ -31,9 +31,29 @@ export class AuthState {
       return !!auth?.token;
     }
 
+    @Selector()
+    static refreshToken({auth}: AuthStateModel): string|undefined {
+        return auth?.refreshToken;
+    }
+
     @Action(LoginUser)
     loginUser(ctx: StateContext<AuthStateModel>, action: LoginUser) {
         return this.authService.login(action.payload).pipe(
+          tap(data => {
+            const state = ctx.getState();
+            ctx.patchState({
+              auth: {
+                  ...state.auth,
+                  ...data
+              }
+            });
+          })
+        );
+    }
+
+    @Action(RefreshUserToken)
+    refreshUserToken(ctx: StateContext<AuthStateModel>, action: RefreshUserToken) {
+        return this.authService.refreshToken(action).pipe(
           tap(data => {
             const state = ctx.getState();
             ctx.patchState({
