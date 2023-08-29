@@ -13,13 +13,16 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderTopComponent } from './shared/layout/header-top/header-top.component';
-import { LoaderComponent } from './shared/components/loader/loader.component'
-import { HeaderComponent } from './shared/layout/header/header.component'
-import { LoadingInterceptor } from 'src/app/core/interceptors/loading.interceptor'
+import { LoaderComponent } from './shared/components/loader/loader.component';
+import { HeaderComponent } from './shared/layout/header/header.component';
+import { LoadingInterceptor } from 'src/app/core/interceptors/loading.interceptor';
+import { JwtInterceptor } from 'src/app/core/interceptors/jwt.interceptor';
+import { RefreshJwtInterceptor } from 'src/app/core/interceptors/refresh-jwt.interceptor';
+import { TruncatePipe } from 'src/app/core/pipes/truncate.pipe';
 
 import { AuthState } from 'src/app/core/states/auth.state';
 import { LoadingState } from 'src/app/core/states/loading.state';
-import { AppLanguageState } from 'src/app/core/states/app-language.state'
+import { AppLanguageState } from 'src/app/core/states/app-language.state';
 
 function HttpLoaderFactory(http: HttpBackend) {
   return new MultiTranslateHttpLoader(http, [
@@ -60,11 +63,14 @@ function HttpLoaderFactory(http: HttpBackend) {
     ToastModule,
     HeaderTopComponent,
     HeaderComponent,
-    LoaderComponent
+    LoaderComponent,
+    TruncatePipe
   ],
   providers: [
     MessageService,
     { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RefreshJwtInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

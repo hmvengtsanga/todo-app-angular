@@ -2,23 +2,22 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
 import { takeUntil, tap, Subject, Observable} from 'rxjs';
-import { Select, Actions, Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 
 import { TodoListComponent } from 'src/app/modules/todo/components/todo-list/todo-list.component';
-import { GetMyTodos } from 'src/app/modules/todo/actions/todo.action';
+import { GetPublicTodos } from 'src/app/modules/todo/actions/todo.action';
 import { TodoListState } from 'src/app/modules/todo/states/todo-list.state';
 import { LoadingState } from 'src/app/core/states/loading.state';
 import { TodoList } from 'src/app/modules/todo/interfaces/todo';
 
 @Component({
-  selector: 'app-my-todo-page',
+  selector: 'app-public-todo-page',
   standalone: true,
   imports: [CommonModule, TranslateModule, TodoListComponent],
-  templateUrl: './my-todo-page.component.html',
-  styleUrls: ['./my-todo-page.component.scss']
+  templateUrl: './public-todo-page.component.html',
+  styleUrls: ['./public-todo-page.component.scss']
 })
-export class MyTodoPageComponent implements OnInit, OnDestroy{
-
+export class PublicTodoPageComponent implements OnInit, OnDestroy {
   private destroy:Subject<void> = new Subject<void>();
 
   @Select(TodoListState.todos) todos$!: Observable<TodoList[]>;
@@ -32,13 +31,11 @@ export class MyTodoPageComponent implements OnInit, OnDestroy{
   isLoading!:boolean;
 
   constructor(
-    private actions$: Actions,
     private store: Store,
   ) { }
 
   ngOnInit(): void {
     this.dispatchTodosList();
-    this.subscribeActionHandlers();
     this.subscribeData();
   }
 
@@ -65,28 +62,17 @@ export class MyTodoPageComponent implements OnInit, OnDestroy{
   }
 
   dispatchTodosList() {
-    this.store.dispatch(new GetMyTodos());
+    this.store.dispatch(new GetPublicTodos());
   }
 
   onPage(event:any) {
-    console.log('[PAGINATION] ', event)
-    this.store.dispatch(new GetMyTodos({
+    this.store.dispatch(new GetPublicTodos({
       ...event
     }));
-  }
-
-  subscribeActionHandlers() {
-    // this.actions$
-    //   .pipe(
-    //     ofActionSuccessful(AddTodo),
-    //     takeUntil(this.destroy)
-    //   )
-    //   .subscribe();
   }
 
   ngOnDestroy() {
     this.destroy.next();
     this.destroy.complete();
   }
-
 }

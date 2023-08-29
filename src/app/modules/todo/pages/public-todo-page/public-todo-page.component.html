@@ -1,12 +1,12 @@
 <div class="mt-2">
-    <p class="mb-1 fs-6 fw-semibold">{{ 'todo.title.my_todos' | translate }} ({{ totalItems}})</p>
+    <p class="mb-1 fs-6 fw-semibold">{{ 'todo.title.public_todos' | translate }} ({{ totalItems}})</p>
     
     <app-todo-list
         [todos]="todos"
         [total]="totalItems"
         [rows]="itemsPerPage"
         [loading]="isLoading"
+        [public]="true"
         (page)="onPage($event)"
     ></app-todo-list>
 </div>
-

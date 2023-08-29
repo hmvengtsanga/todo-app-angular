@@ -49,12 +49,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       {
         label: this.translateService.instant('shared.menu.my_todos'),
         icon: 'pi pi-folder',
-        routerLink: '/todos',
+        routerLink: '/todos/me',
       },
       {
         label: this.translateService.instant('shared.menu.public_todos'),
         icon: 'pi pi-folder-open',
-        routerLink: '/public-todos'
+        routerLink: '/todos/public'
       },
       {
         label: this.translateService.instant('shared.menu.users'),

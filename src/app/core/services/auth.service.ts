@@ -16,4 +16,8 @@ export class AuthService extends BaseHttpService {
   login(data:  { email:string; password: string}): Observable<any> {
     return this.http.post(`${this.baseUrl}/authentication`, data);
   }
+
+  refreshToken(data:  {refreshToken:string }): Observable<any> {
+    return this.http.post(`${this.baseUrl}/refresh-token`, data);
+  }
 }
