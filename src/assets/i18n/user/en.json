@@ -1,0 +1,28 @@
+{
+    "user": {
+        "title": "Users list",
+        "sub_title": "Users",
+        "table": {
+            "header": {
+                "lastname": "Lastname",
+                "firstname": "Firstname",
+                "email": "Email address",
+                "roles": "Profiles",
+                "created_at": "Created at",
+                "updated_at": "Updated at"
+            },
+            "body": {
+                "date_format": "MM/dd/yy",
+                "date_hour_format": "MM/dd/yy h:m",
+                "role": {
+                    "role_user": "User",
+                    "role_admin": "Admin"
+                }
+            },
+            "message": {
+                "empty": "There are no users to display.",
+                "page_report": "Showing {first} to {last} of {totalRecords} users."
+            }
+        }
+    }
+}

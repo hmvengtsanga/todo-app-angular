@@ -4,7 +4,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-landing-todo-page',
+  selector: 'app-landing-user-page',
   standalone: true,
   imports: [CommonModule, TranslateModule, RouterModule],
   templateUrl: './landing-page.component.html',

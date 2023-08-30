@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { authGuard } from './core/guards/auth.guard';
 import { noAuthGuard } from './core/guards/no-auth.guard';
+import { adminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +15,11 @@ const routes: Routes = [
     path: 'todos',
     canActivate: [authGuard],
     loadChildren: () => import('./modules/todo/todo.module').then((mod) => mod.TodoModule),
+  },
+  {
+    path: 'users',
+    canActivate: [authGuard, adminGuard],
+    loadChildren: () => import('./modules/user/user.module').then((mod) => mod.UserModule),
   },
   {
     path: 'not-found',

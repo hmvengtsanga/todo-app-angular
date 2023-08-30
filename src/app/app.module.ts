@@ -30,6 +30,7 @@ function HttpLoaderFactory(http: HttpBackend) {
     {prefix: './assets/i18n/login/', suffix: '.json'},
     {prefix: './assets/i18n/core/', suffix: '.json'},
     {prefix: './assets/i18n/todo/', suffix: '.json'},
+    {prefix: './assets/i18n/user/', suffix: '.json'},
   ]);
 }
 

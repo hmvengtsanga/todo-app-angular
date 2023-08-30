@@ -1,0 +1,28 @@
+{
+    "user": {
+        "title": "Liste des utilisateurs",
+        "sub_title": "Utilisateurs",
+        "table": {
+            "header": {
+                "lastname": "Prénom",
+                "firstname": "Nom",
+                "email": "Adresse email",
+                "roles": "Profils",
+                "created_at": "Date création",
+                "updated_at": "Date mise à jour"
+            },
+            "body": {
+                "date_format": "dd/MM/yyyy",
+                "date_hour_format": "dd/MM/yyyy à h:m",
+                "role": {
+                    "role_user": "Utilisateur",
+                    "role_admin": "Administrateur"
+                }
+            },
+            "message": {
+                "empty": "Aucun utilisateurs à afficher.",
+                "page_report": "Affichage de {first} à {last} sur {totalRecords} utilisateurs."
+            }
+        }
+    }
+}

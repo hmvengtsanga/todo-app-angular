@@ -1,6 +1,13 @@
 
 <div class="w-100">
     <div class="card my-4 w-100">
-        <p-menubar [model]="items"></p-menubar>
+        <p-menubar [model]="items">
+            <ng-template pTemplate="start">
+                <div height="40" class="fw-bold">TODO APP</div> 
+            </ng-template>
+            <ng-template pTemplate="end">
+                <div class="w-full fst-italic fw-bolder"> {{ firstnameLastname$ | async }}</div>
+            </ng-template>
+        </p-menubar>
     </div>
 </div>
