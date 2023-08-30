@@ -44,12 +44,12 @@ export class TodoListState {
     @Action(GetMyTodos)
     getMyTodos(ctx: StateContext<TodoListStateModel>, { pagination }: GetMyTodos) {
         const state = ctx.getState();
-
-        const query = this.getPagination({
+        const pageData = {
           page: 0,
           rows: state.itemsPerPage,
           ...pagination
-        });
+        } as Pagination;
+        const query = this.getPagination(pageData);
 
         return this.totoService.getMyTodos(query).pipe(
           tap(results => {
@@ -59,7 +59,8 @@ export class TodoListState {
               todos: [
                   ...data
               ],
-              totalItems: total
+              totalItems: total,
+              itemsPerPage: pageData.rows
             });
           })
         );
@@ -68,12 +69,12 @@ export class TodoListState {
     @Action(GetPublicTodos)
     getPublicTodos(ctx: StateContext<TodoListStateModel>, { pagination }: GetPublicTodos) {
         const state = ctx.getState();
-
-        const query = this.getPagination({
+        const pageData = {
           page: 0,
           rows: state.itemsPerPage,
           ...pagination
-        });
+        } as Pagination;
+        const query = this.getPagination(pageData);
 
         return this.totoService.getPublicTodos(query).pipe(
           tap(results => {
@@ -83,7 +84,8 @@ export class TodoListState {
               todos: [
                   ...data
               ],
-              totalItems: total
+              totalItems: total,
+              itemsPerPage: pageData.rows
             });
           })
         );

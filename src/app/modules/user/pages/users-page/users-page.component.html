@@ -1,0 +1,13 @@
+
+<div class="mt-2">
+    <p class="mb-1 fs-6 fw-semibold">{{ 'user.sub_title' | translate }} ({{ totalItems }})</p>
+    
+    <app-user-list
+        [users]="users"
+        [total]="totalItems"
+        [rows]="itemsPerPage"
+        [loading]="isLoading"
+        (page)="onPage($event)"
+    >
+    </app-user-list>
+</div>

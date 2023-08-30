@@ -4,11 +4,13 @@ import { MenuItem} from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
-import { tap, Subject, takeUntil} from 'rxjs';
+import { tap, Subject, takeUntil, Observable} from 'rxjs';
 import { Store, Actions, ofActionSuccessful} from '@ngxs/store';
 import { Router } from '@angular/router';
+import { Select } from '@ngxs/store';
 
 import { LogoutUser } from 'src/app/core/actions/auth.action';
+import { AuthState } from 'src/app/core/states/auth.state';
 
 @Component({
   selector: 'app-header',
@@ -20,6 +22,11 @@ import { LogoutUser } from 'src/app/core/actions/auth.action';
 export class HeaderComponent implements OnInit, OnDestroy {
   items: MenuItem[] | undefined;
   private destroy:Subject<void> = new Subject<void>();
+
+  @Select(AuthState.firstnameLastname) firstnameLastname$!: Observable<string>;
+  @Select(AuthState.isAdmin) isAdmin$!: Observable<boolean>;
+
+  isAdmin:boolean = false;
 
   constructor(
     private translateService: TranslateService,
@@ -36,6 +43,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   initMenuTranslated() {
+    this.isAdmin$.pipe(
+        tap((isAdmin) => this.isAdmin = isAdmin),
+        takeUntil(this.destroy)
+    ).subscribe();
+
     this.translateService.onLangChange
       .pipe(
         tap(() => this.initMenu()),
@@ -60,7 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
         label: this.translateService.instant('shared.menu.users'),
         icon: 'pi pi-users',
         routerLink: '/users',
-        visible: true
+        visible: this.isAdmin
       },
       {
         label: this.translateService.instant('shared.menu.logout'),

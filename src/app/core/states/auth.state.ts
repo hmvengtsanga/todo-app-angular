@@ -32,6 +32,21 @@ export class AuthState {
     }
 
     @Selector()
+    static isAdmin({auth}: AuthStateModel): boolean {
+      const roles = auth?.roles ?? [];
+
+      return roles.includes('ROLE_ADMIN');
+    }
+
+    @Selector()
+    static firstnameLastname({auth}: AuthStateModel): string {
+      const firstname = auth?.firstname?.toLowerCase() ?? '';
+      const lastname = auth?.lastname?.toLowerCase() ?? '';
+
+      return `${firstname?.charAt(0).toUpperCase() + firstname?.slice(1)} ${lastname?.charAt(0).toUpperCase() + lastname?.slice(1)}`;
+    }
+
+    @Selector()
     static refreshToken({auth}: AuthStateModel): string|undefined {
         return auth?.refreshToken;
     }

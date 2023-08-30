@@ -17,7 +17,7 @@ import { TodoList } from 'src/app/modules/todo/interfaces/todo';
   templateUrl: './my-todo-page.component.html',
   styleUrls: ['./my-todo-page.component.scss']
 })
-export class MyTodoPageComponent implements OnInit, OnDestroy{
+export class MyTodoPageComponent implements OnInit, OnDestroy {
 
   private destroy:Subject<void> = new Subject<void>();
 
@@ -69,7 +69,6 @@ export class MyTodoPageComponent implements OnInit, OnDestroy{
   }
 
   onPage(event:any) {
-    console.log('[PAGINATION] ', event)
     this.store.dispatch(new GetMyTodos({
       ...event
     }));
