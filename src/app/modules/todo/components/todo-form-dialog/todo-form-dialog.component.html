@@ -1,0 +1,48 @@
+<p-dialog 
+  [header]="header" 
+  [(visible)]="canShow" 
+  [modal]="true" 
+  [style]="{width: '50vw'}"
+  (onHide)="hideDialog()"
+>
+  
+  <div class="p-2">
+      <form [formGroup]="todoForm">
+      
+          <div class="my-4">
+            <app-form-control-input-text 
+                label="{{ 'todo.form.title' | translate }}"
+                formControlName="title"
+            >
+            </app-form-control-input-text>
+          </div>
+    
+          <div class="my-4">
+            <app-form-control-textarea
+                label="{{ 'todo.form.description' | translate }}"
+                formControlName="description"
+            >
+            </app-form-control-textarea>
+          </div>
+
+          <div class="my-4">
+            <app-form-control-checkbox
+                label="{{ 'todo.form.public' | translate }}"
+                formControlName="public"
+            >
+            </app-form-control-checkbox>
+          </div>
+          
+          <div class="text-center">
+            <button class="btn btn-primary w-50 py-2 my-3" (click)="addTodoSubmit()" *ngIf="action === 'create'">
+              {{ 'todo.form.btn.add' | translate }} 
+            </button>
+            <button class="btn btn-primary w-50 py-2 my-3" (click)="updateTodoSubmit()" *ngElse>
+              {{ 'todo.form.btn.update' | translate }} 
+            </button>
+          </div>
+      
+        </form>
+  </div>
+
+</p-dialog>

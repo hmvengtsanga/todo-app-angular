@@ -8,8 +8,8 @@
             }
         },
         "menu": {
-            "my_todos": "Mes Todos",
-            "public_todos": "Todos publiques",
+            "my_todos": "Mes Tâches",
+            "public_todos": "Tâches publiques",
             "users": "Utilisateurs",
             "logout": "Déconnexion"
         }

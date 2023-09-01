@@ -1,14 +1,17 @@
 
 <div>
     <span class="p-float-label">
-        <input
+        <textarea 
+            pInputTextarea 
             class="form-control"
-            pInputText 
             id="{{ label | translate }}"
             [(ngModel)]="val"
             (ngModelChange)="onChange($event)" 
             (blur)="onTouch($event)"
-        />
+            [rows]="rows" 
+            [cols]="cols"
+            [autoResize]="autoResize"
+        ></textarea>
         <label htmlFor="{{ label | translate}}"> {{ label | translate}}</label>
     </span>
     <small *ngIf="hint"> {{ hint | translate}} </small>
