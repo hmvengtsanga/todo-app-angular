@@ -11,3 +11,15 @@ export interface TodoList {
     createdAt: string;
     updatedAt: string;
 }
+
+export interface TodoCreate {
+    title: string;
+    description: string;
+    public: boolean;
+}
+
+export interface TodoUpdate extends TodoCreate{
+    "@id"?: string;
+    id: number;
+    status: 'in_progress' | 'done';
+}

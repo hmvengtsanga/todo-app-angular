@@ -1,13 +1,16 @@
 {
     "todo": {
         "title": {
-            "home": "Liste des todos",
-            "my_todos": "Mes todos",
-            "public_todos": "Todos publiques"
+            "home": "Liste des Tâches",
+            "my_todos": "Mes Tâches",
+            "public_todos": "Tâches publiques"
+        },
+        "btn": {
+            "add": "Ajouter une tâche"
         },
         "list": {
             "table": {
-                "empty_data": "Aucun todo à afficher.", 
+                "empty_data": "Aucune tâche à afficher.", 
                 "createAtFormat": "dd/MM/yyyy à h:m",
                 "action": {
                     "edit": "Modifier",
@@ -23,6 +26,21 @@
         "status": {
             "in_progress" : "En cours",
             "done": "Terminé"
+        },
+        "dialog": {
+            "header": {
+                "add_todo": "Créer une tâche"
+            }
+        },
+        "form": {
+            "title": "Nom de la tache",
+            "description": "Description de la tâche",
+            "public": "Rendre publique",
+            "btn": {
+                "add": "Créer la tâche",
+                "update": "Enregister la tâche"
+            },
+            "success": "La nouvelle tâche a été créée avec succès."
         }
 
     }

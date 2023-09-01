@@ -1,0 +1,14 @@
+<div>
+    <p-checkbox 
+        [(ngModel)]="val"
+        (ngModelChange)="onChange($event)" 
+        (blur)="onTouch($event)"
+        [binary]="true" 
+        inputId="binary"
+    ></p-checkbox>
+    <label htmlFor="{{ label | translate}}" class="checkbox-label"> {{ label | translate}}</label>
+    <small *ngIf="hint"> {{ hint | translate}} </small>
+    <ng-container *ngIf="inputControl.control">
+        <app-form-control-error  [control]="inputControl.control" ></app-form-control-error>
+    </ng-container>
+</div>

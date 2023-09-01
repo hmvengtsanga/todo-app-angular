@@ -5,6 +5,9 @@
             "my_todos": "My todos",
             "public_todos": "Public todos"
         },
+        "btn": {
+            "add": "Add new todo"
+        },
         "list": {
             "table": {
                 "empty_data": "No todo to display.", 
@@ -23,6 +26,21 @@
         "status": {
             "in_progress" : "In progress",
             "done": "Done"
+        },
+        "dialog": {
+            "header": {
+                "add_todo": "Create todo"
+            }
+        },
+        "form": {
+            "title": "Todo name",
+            "description": "Todo description",
+            "public": "Is public",
+            "btn": {
+                "add": "Add toto",
+                "update": "Save todo"
+            },
+            "success": "Todo has been successfully created."
         }
 
     }

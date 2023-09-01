@@ -1,5 +1,17 @@
 <div class="mt-2">
-    <p class="mb-1 fs-6 fw-semibold">{{ 'todo.title.my_todos' | translate }} ({{ totalItems}})</p>
+    <div class="d-flex mb-2">
+        <div class="p-2 flex-fill sub-title">
+            <p class="mb-1 fs-6 fw-semibold"> {{ 'todo.title.my_todos' | translate }} ({{ totalItems}})</p>
+        </div>
+        <div class="p-2 flex-fill">
+            <p-button 
+                (click)="showAddTodoDialog()" 
+                icon="pi pi-plus" 
+                label="{{ 'todo.btn.add' | translate }}"
+                styleClass="wrapper-btn p-button-sm p-button-secondary float-end"
+            ></p-button>
+        </div>
+    </div>
     
     <app-todo-list
         [todos]="todos"
@@ -8,5 +20,16 @@
         [loading]="isLoading"
         (page)="onPage($event)"
     ></app-todo-list>
+
+    <ng-container *ngIf="dialog.visible">
+        <app-todo-form-dialog
+            [canShow]="dialog.visible"
+            [header]="dialog.header"
+            [action]="dialog.action"
+            (closeDialog)="onCloseDialog()"
+            (addTodo)="onAddTodo($event)"
+            (updateTodo)="onUpdateTodo($event)"
+        ></app-todo-form-dialog>
+    </ng-container>
 </div>
 
