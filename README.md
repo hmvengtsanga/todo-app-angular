@@ -6,7 +6,7 @@ Generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.
  Install https://github.com/hmvengtsanga/todo-app-api locally
 
  ## Config
- Changes backend api url in environnements file according to local server
+ Changes backend api url in environments file according to local server
 
 ## Development server
 
