@@ -33,15 +33,14 @@ export class RefreshJwtInterceptor implements HttpInterceptor {
     const refreshToken = this.store.selectSnapshot(AuthState.refreshToken);
     return this.store.dispatch(new RefreshUserToken(refreshToken as string)).pipe(
       take(1),
-      tap(() => {
-        const token = this.store.selectSnapshot(AuthState.token);
-        request = request.clone({
-          setHeaders: {
-            Authorization: `Bearer ${token}`
-          }
-        });
+      tap(({auth}) => {
+          request = request.clone({
+            setHeaders: {
+              Authorization: `Bearer ${auth?.token}`
+            }
+          });
 
-        return next.handle(request);
+          return next.handle(request);
       })
     );
   }
