@@ -10,10 +10,41 @@
                 {{ todo.title }}
             </div>
             <div class="row">
-                <div [ngClass]="public ? 'col-12' : 'col-9' " > {{ todo.description | truncate:100 }}</div>
-                <div class="col-3" *ngIf="public === false"> 
-                    <p-button icon="pi pi-check" styleClass="p-button-rounded p-button-outlined float-end ms-2"></p-button>
-                    <p-button icon="pi pi-pencil" styleClass="p-button-rounded p-button-outlined float-end"></p-button>
+                <div class="col-9" > {{ todo.description | truncate:100 }}</div>
+                <div class="col-3 text-end" >
+                    <ng-container *ngIf="public === false; else elseShowTodoDetails" >
+                        <p-button 
+                            icon="pi pi-pencil" 
+                            styleClass="p-button-rounded p-button-outlined ms-2"
+                            pTooltip=" {{'todo.list.table.tooltip.update' | translate }}" 
+                            tooltipPosition="bottom"
+                            (click)="updateTodo(todo)"
+                        ></p-button>
+                        <p-button 
+                            [icon]="todo.status === 'done' ? 'pi pi-undo' : 'pi pi-check' " 
+                            styleClass="p-button-rounded p-button-outlined ms-2"
+                            [pTooltip]="(todo.status === 'done' ? 'todo.list.table.tooltip.to_in_progress' : 'todo.list.table.tooltip.to_done') | translate"  
+                            tooltipPosition="bottom"
+                            (click)="changeStatusTodo(todo)"
+                        ></p-button>
+                        <p-button 
+                            icon="pi pi-times" 
+                            styleClass="p-button-rounded p-button-outlined p-button-danger ms-2"
+                            pTooltip="{{ 'todo.list.table.tooltip.delete' | translate }}" 
+                            tooltipPosition="bottom"
+                            (click)="deleteTodo(todo)"
+                        ></p-button>
+                    </ng-container>
+
+                    <ng-template #elseShowTodoDetails>
+                        <p-button 
+                            icon="pi pi-eye" 
+                            styleClass="p-button-rounded p-button-outlined"
+                            pTooltip=" {{ 'todo.list.table.tooltip.show' | translate }}" 
+                            tooltipPosition="bottom"
+                            (click)="showTodo(todo)"
+                        ></p-button>
+                    </ng-template>
                 </div>
             </div>
             <div class="p-1">

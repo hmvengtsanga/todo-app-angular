@@ -8,6 +8,7 @@
             [(ngModel)]="val"
             (ngModelChange)="onChange($event)" 
             (blur)="onTouch($event)"
+            [disabled]="disabled"
         />
         <label htmlFor="{{ label | translate}}"> {{ label | translate}}</label>
     </span>

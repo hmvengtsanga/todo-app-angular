@@ -32,14 +32,50 @@
             >
             </app-form-control-checkbox>
           </div>
+
+          <ng-container *ngIf="action !== 'create' ">
+            <div class="my-4">
+              <p-chip 
+                *ngIf="action === 'show' "
+                [label]="todo?.owner?.firstName + ' ' + todo?.owner?.lastName" 
+                icon="pi pi-user" 
+                class="ms-1"
+              ></p-chip>
+              <p-tag *ngIf="['show', 'update'].includes(action) "
+                  value="{{ todo?.createdAt | date: ('todo.list.table.createAtFormat' | translate) }}" 
+                  class="ms-1"
+                  icon="pi pi-server"
+              ></p-tag>
+              <p-tag *ngIf="['show', 'update'].includes(action)"
+                  value="{{ todo?.updatedAt | date: ('todo.list.table.createAtFormat' | translate) }}" 
+                  class="ms-1"
+                  icon="pi pi-sync"
+              ></p-tag>
+            </div>
+          </ng-container>
           
           <div class="text-center">
-            <button class="btn btn-primary w-50 py-2 my-3" (click)="addTodoSubmit()" *ngIf="action === 'create'">
-              {{ 'todo.form.btn.add' | translate }} 
-            </button>
-            <button class="btn btn-primary w-50 py-2 my-3" (click)="updateTodoSubmit()" *ngElse>
-              {{ 'todo.form.btn.update' | translate }} 
-            </button>
+            <ng-container [ngSwitch]="action">
+
+              <ng-container *ngSwitchCase="'create'">
+                <button class="btn btn-primary w-50 py-2 my-3" (click)="addTodoSubmit()">
+                  {{ 'todo.form.btn.add' | translate }} 
+                </button>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'update'">
+                <button class="btn btn-primary w-50 py-2 my-3" (click)="updateTodoSubmit()">
+                  {{ 'todo.form.btn.update' | translate }} 
+                </button>
+              </ng-container>
+
+              <ng-container *ngSwitchDefault>
+                <button class="btn btn-primary w-50 py-2 my-3" (click)="close($event)">
+                  {{ 'todo.form.btn.close' | translate }} 
+                </button>
+              </ng-container>
+
+            </ng-container>
           </div>
       
         </form>

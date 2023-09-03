@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { tap } from 'rxjs';
 
-import { TodoList } from 'src/app/modules/todo/interfaces/todo';
+import { Todo } from 'src/app/modules/todo/interfaces/todo';
 import { GetMyTodos, GetPublicTodos } from 'src/app/modules/todo/actions/todo.action';
 import { TodoService } from 'src/app/modules/todo/services/todo.service';
 import { Pagination } from 'src/app/core/interfaces/pagination';
 
 export interface TodoListStateModel {
-  todos: TodoList[];
+  todos: Todo[];
   totalItems: number;
   itemsPerPage: number;
 }
@@ -25,7 +25,7 @@ export interface TodoListStateModel {
 export class TodoListState {
 
     @Selector()
-    static todos({todos}: TodoListStateModel): TodoList[] {
+    static todos({todos}: TodoListStateModel): Todo[] {
         return todos;
     }
 

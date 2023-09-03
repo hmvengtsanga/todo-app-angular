@@ -16,6 +16,7 @@ import { FormControlErrorComponent } from 'src/app/shared/components/form-contro
 export class FormControlInputTextComponent implements ControlValueAccessor {
   @Input() label!:string;
   @Input() hint!:string;
+  @Input() disabled:boolean = false;
 
   val: any;
 
