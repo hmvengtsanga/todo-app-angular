@@ -1,12 +1,12 @@
 
 
-export class DialogConfig<T> {
+export class DialogConfig {
     header: string|undefined;
     visible: boolean = false;
-    action: 'create' | 'update' = 'create';
-    todo?: T;
+    action: 'create' | 'update' | 'show' = 'show';
+    todo?: any;
 
-    constructor(init?: Partial<DialogConfig<T>>) {
+    constructor(init?: Partial<DialogConfig>) {
         Object.assign(this, init);
     }
 }

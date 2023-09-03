@@ -19,3 +19,27 @@ export class AddTodo {
 
     constructor(public payload: TodoCreate) {}
 }
+
+export class UpdateTodo {
+    static readonly type = '[TODO Api] Update Todo';
+
+    constructor(public payload: TodoUpdate) {}
+}
+
+export class DeleteTodo {
+    static readonly type = '[TODO Api] Delete Todo';
+
+    constructor(public todoId: number) {}
+}
+
+export class DoneTodo {
+    static readonly type = '[TODO Api] Set Done todo';
+
+    constructor(public todoId: number) {}
+}
+
+export class OpenTodo {
+    static readonly type = '[TODO Api] Set In going todo';
+
+    constructor(public todoId: number) {}
+}

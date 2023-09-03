@@ -19,6 +19,9 @@
         [rows]="itemsPerPage"
         [loading]="isLoading"
         (page)="onPage($event)"
+        (update)="openUpdateTodoDialog($event)"
+        (changeStatus)="onChangeStatusTodo($event)"
+        (delete)="onDeleteTodo($event)"
     ></app-todo-list>
 
     <ng-container *ngIf="dialog.visible">
@@ -26,10 +29,11 @@
             [canShow]="dialog.visible"
             [header]="dialog.header"
             [action]="dialog.action"
-            (closeDialog)="onCloseDialog()"
-            (addTodo)="onAddTodo($event)"
-            (updateTodo)="onUpdateTodo($event)"
+            [todo]="dialog.todo"
+            (closeDialog)="onCloseDialog($event)"
         ></app-todo-form-dialog>
     </ng-container>
+
+    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
 </div>
 

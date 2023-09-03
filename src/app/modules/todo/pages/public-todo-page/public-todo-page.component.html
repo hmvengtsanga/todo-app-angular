@@ -8,5 +8,17 @@
         [loading]="isLoading"
         [public]="true"
         (page)="onPage($event)"
+        (show)="openShowTodoDialog($event)"
     ></app-todo-list>
+
+    <ng-container *ngIf="dialog.visible">
+        <app-todo-form-dialog
+            [canShow]="dialog.visible"
+            [header]="dialog.header"
+            [action]="dialog.action"
+            [disabled]="true"
+            [todo]="dialog.todo"
+            (closeDialog)="onCloseDialog()"
+        ></app-todo-form-dialog>
+    </ng-container>
 </div>

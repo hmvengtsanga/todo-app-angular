@@ -19,6 +19,7 @@ export class FormControlTextareaComponent implements ControlValueAccessor {
   @Input() rows:number = 5;
   @Input() cols:number = 30;
   @Input() autoResize:boolean = true;
+  @Input() disabled:boolean = false;
 
   val: any;
 

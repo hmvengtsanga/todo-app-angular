@@ -20,6 +20,13 @@
                 "privacy": {
                     "public": "Publique",
                     "private": "Privée"
+                },
+                "tooltip":{
+                    "update": "Mettre à jour",
+                    "to_done": "Marquer comme fini",
+                    "to_in_progress": "Marquer comme pas fini",
+                    "delete": "Supprimer",
+                    "show": "Voir"
                 }
             }
         },
@@ -29,7 +36,19 @@
         },
         "dialog": {
             "header": {
-                "add_todo": "Créer une tâche"
+                "add_todo": "Créer une tâche",
+                "update_todo": "Modifier une tâche",
+                "show_todo": "Détails de la Tâche"
+            }
+        },
+        "confirm_dialog": {
+            "delete": {
+                "message": "Etes-vous sûre de vouloir suppimer cette tâche? action irréversible.",
+                "header": "Confirmation suppression de la tâche #{{id}}"
+            },
+            "btn": {
+                "accept": "Oui",
+                "reject": "Non"
             }
         },
         "form": {
@@ -38,9 +57,16 @@
             "public": "Rendre publique",
             "btn": {
                 "add": "Créer la tâche",
-                "update": "Enregister la tâche"
+                "update": "Enregister la tâche",
+                "close": "Fermer"
             },
-            "success": "La nouvelle tâche a été créée avec succès."
+            "success": {
+                "add": "La nouvelle tâche a été créée avec succès.",
+                "update": "La tâche a été mise à jour avec succès.",
+                "delete": "La tâche a été supprimée avec succès.",
+                "status_done": "La tâche a été marquée comme 'terminée' avec succès.",
+                "status_in_going": "La tâche a été marquée comme 'en cours' avec succès."
+            }
         }
 
     }

@@ -1,6 +1,7 @@
 import { Owner } from "src/app/modules/todo/interfaces/owner";
+import { DialogActionType } from "src/app/modules/todo/interfaces/custum-type";
 
-export interface TodoList {
+export interface Todo {
     "@id"?: string;
     id: number;
     title: string;
@@ -21,5 +22,10 @@ export interface TodoCreate {
 export interface TodoUpdate extends TodoCreate{
     "@id"?: string;
     id: number;
-    status: 'in_progress' | 'done';
+    // status: 'in_progress' | 'done';
+}
+
+export interface TodoItem {
+    action: DialogActionType;
+    todo?: Todo;
 }

@@ -20,6 +20,13 @@
                 "privacy": {
                     "public": "Public",
                     "private": "Private"
+                },
+                "tooltip":{
+                    "update": "Update",
+                    "to_done": "Mark as Done",
+                    "to_in_progress": "Mark as In progress",
+                    "delete": "Delete",
+                    "show": "See"
                 }
             }
         },
@@ -29,7 +36,19 @@
         },
         "dialog": {
             "header": {
-                "add_todo": "Create todo"
+                "add_todo": "Create todo",
+                "update_todo": "Update todo",
+                "show_todo": "Todo informations"
+            }
+        },
+        "confirm_dialog": {
+            "delete": {
+                "message": "Are you sure you want to delete this todo? This is an irreversible action.",
+                "header": "Todo deletion confirmation #{{id}}"
+            },
+            "btn": {
+                "accept": "Yes",
+                "reject": "No"
             }
         },
         "form": {
@@ -38,9 +57,16 @@
             "public": "Is public",
             "btn": {
                 "add": "Add toto",
-                "update": "Save todo"
+                "update": "Save todo",
+                "close": "Close"
             },
-            "success": "Todo has been successfully created."
+            "success": {
+                "add": "Todo has been successfully created.",
+                "update": "Todo has been successfully updated.",
+                "delete": "Todo has been successfully deleted.",
+                "status_done": "Todo has been successfully marked as done.",
+                "status_in_going": "Todo has been successfully marked as in going."
+            }
         }
 
     }

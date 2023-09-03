@@ -5,6 +5,7 @@
         (blur)="onTouch($event)"
         [binary]="true" 
         inputId="binary"
+        [disabled]="disabled"
     ></p-checkbox>
     <label htmlFor="{{ label | translate}}" class="checkbox-label"> {{ label | translate}}</label>
     <small *ngIf="hint"> {{ hint | translate}} </small>
